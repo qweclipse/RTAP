@@ -1,0 +1,12 @@
+numpy==2.2.6
+pandas==2.3.3
+opencv-python==4.12.0.88
+ultralytics==8.3.221
+kafka-python==2.2.15
+pyspark==4.0.1
+scikit-learn==1.7.2
+shap==0.49.1
+streamlit==1.50.0
+sounddevice==0.5.3
+webrtcvad-wheels==2.0.14
+pytest==8.4.2

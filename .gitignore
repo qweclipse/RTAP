@@ -1,0 +1,10 @@
+.runtime/
+logs/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+reports/*
+!reports/model_metrics.json
+data/
+*.pt

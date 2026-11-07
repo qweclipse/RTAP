@@ -1,0 +1,36 @@
+<!doctype html><html><head><style>
+body{margin:0;font:12px system-ui,sans-serif;color:#526774}img{display:none;width:100%;max-height:200px;object-fit:contain;border-radius:8px}
+#message{padding:10px;background:#eaf0f5;border-radius:6px}p{line-height:1.5;margin:8px 0}
+</style></head><body><img id="frame" alt="YOLO preview"><div id="message"></div><p id="caption"></p>
+<script>
+const labels=LABELS, image=document.getElementById('frame'), message=document.getElementById('message'), caption=document.getElementById('caption');
+let lastFrame=null, rendered=[], interval=200;
+async function refresh(){
+  try {
+    const response=await fetch('./frame?t='+Date.now(),{cache:'no-store'});
+    if(!response.ok) throw Error('preview unavailable');
+    const packet=await response.json();
+    const fresh=Date.now()/1000-packet.updated<Math.max(3,2.5/(packet.preview_hz||1));
+    if(packet.status==='running' && fresh && packet.jpeg){
+      interval=Math.max(25,Math.min(1000,1000/(packet.preview_hz||1)-(Date.now()-packet.updated*1000)+20));
+      message.style.display='none'; image.style.display='block';
+      if(lastFrame!==packet.frame_id){
+        lastFrame=packet.frame_id;
+        image.onload=()=>{
+          const now=performance.now(); rendered.push(now); rendered=rendered.filter(t=>now-t<5000).slice(-150);
+          const fps=rendered.length>1 ? (rendered.length-1)*1000/(now-rendered[0]) : 0;
+          image.dataset.frameId=String(packet.frame_id);
+          caption.textContent=labels.people+': '+packet.n_person+' · '+packet.device+' · '+fps.toFixed(1)+' FPS';
+        };
+        image.src='data:image/jpeg;base64,'+packet.jpeg;
+      }
+    } else {
+      interval=500;
+      image.style.display='none'; message.style.display='block'; caption.textContent=''; rendered=[];lastFrame=null;
+      message.textContent=packet.status==='paused' ? labels.paused : packet.status==='starting' || packet.status==='camera_wait' ? labels.waiting : labels.off;
+    }
+  } catch(error){interval=1000;image.style.display='none';message.style.display='block';message.textContent=labels.waiting;caption.textContent='';}
+  setTimeout(refresh,interval);
+}
+refresh();
+</script></body></html>

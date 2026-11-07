@@ -1,0 +1,195 @@
+{
+  "provenance": "ILLUSTRATIVE_SYNTHETIC",
+  "rows": 480,
+  "train_rows": 360,
+  "test_rows": 120,
+  "dataset_sha256": "34085241abc191d11dc283a3f3ff30e6566cdbe72f5cc6fb53f799f04f74fda3",
+  "models": [
+    {
+      "model": "L1",
+      "cv_f1": 0.9134551402905622,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        5.519124875747419,
+        -0.32105731656826064,
+        -0.3645925125521336,
+        0.13665417092964707,
+        -0.09236555260862007
+      ],
+      "params": {
+        "C": 1.0,
+        "penalty": "l1",
+        "l1_ratio": null,
+        "max_iter": 1000
+      },
+      "search_seconds": null
+    },
+    {
+      "model": "L1 tuned",
+      "cv_f1": 0.9134551402905622,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        5.519124875747419,
+        -0.32105731656826064,
+        -0.3645925125521336,
+        0.13665417092964707,
+        -0.09236555260862007
+      ],
+      "params": {
+        "C": 1,
+        "penalty": "l1",
+        "l1_ratio": null,
+        "max_iter": 1000
+      },
+      "search_seconds": 0.2427456000004895
+    },
+    {
+      "model": "L2",
+      "cv_f1": 0.9092800899887514,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        4.247364880229549,
+        -0.28615606934928045,
+        -0.32335840443252406,
+        0.11943252732043766,
+        0.16715386758639494
+      ],
+      "params": {
+        "C": 1.0,
+        "penalty": "l2",
+        "l1_ratio": null,
+        "max_iter": 1000
+      },
+      "search_seconds": null
+    },
+    {
+      "model": "L2 tuned",
+      "cv_f1": 0.9112621578344219,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        6.056789385471314,
+        -0.3656747050667523,
+        -0.4330238954932025,
+        0.21234938500730743,
+        -0.3712341090191797
+      ],
+      "params": {
+        "C": 10,
+        "penalty": "l2",
+        "l1_ratio": null,
+        "max_iter": 1000
+      },
+      "search_seconds": 0.3327854999952251
+    },
+    {
+      "model": "ENet",
+      "cv_f1": 0.9087083048475243,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        4.746819461253529,
+        -0.29392836425621416,
+        -0.33391257472688357,
+        0.12437697816745365,
+        0.0
+      ],
+      "params": {
+        "C": 1.0,
+        "penalty": "elasticnet",
+        "l1_ratio": 0.5,
+        "max_iter": 1000
+      },
+      "search_seconds": null
+    },
+    {
+      "model": "ENet tuned",
+      "cv_f1": 0.9134551402905622,
+      "test_f1": 0.9739130434782609,
+      "test_precision": 0.9491525423728814,
+      "test_recall": 1.0,
+      "confusion_matrix": [
+        [
+          61,
+          3
+        ],
+        [
+          0,
+          56
+        ]
+      ],
+      "coefficients": [
+        5.102019527693577,
+        -0.3084824992674122,
+        -0.3493781046124025,
+        0.12798885862341383,
+        0.0
+      ],
+      "params": {
+        "C": 1,
+        "penalty": "elasticnet",
+        "l1_ratio": 0.8,
+        "max_iter": 1000
+      },
+      "search_seconds": 0.8839334999938728
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "bootstrap_servers": "127.0.0.1:9092",
+  "topic": "video_events",
+  "source_id": "PC_camera",
+  "camera_index": 0,
+  "sampling_hz": 1.0,
+  "performance_profile": "performance",
+  "torch_threads": 2,
+  "yolo_fp16": false,
+  "confidence": 0.35,
+  "image_size": 416,
+  "window_seconds": 10,
+  "watermark_seconds": 5,
+  "trigger_seconds": 2,
+  "audio_enabled": true,
+  "alert_person_threshold": 3,
+  "alert_noise_threshold": 0.3,
+  "data_root": ".runtime/data",
+  "model_weights": ".runtime/models/yolov8n.pt"
+}

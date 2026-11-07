@@ -1,0 +1,7 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>local.rtap</groupId><artifactId>kafka-connector</artifactId><version>1</version>
+  <dependencies>
+    <dependency><groupId>org.apache.spark</groupId><artifactId>spark-sql-kafka-0-10_2.13</artifactId><version>4.0.1</version></dependency>
+  </dependencies>
+</project>
